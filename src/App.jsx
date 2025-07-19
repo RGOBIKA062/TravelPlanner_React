@@ -5,6 +5,7 @@ import Carousel from './components/Carousel';
 import DestinationCard from './components/DestinationCard';
 import ContactUs from './components/ContactUs';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import Login from './components/Login';
 import Signup from './components/Signup';
 
@@ -46,11 +47,11 @@ export default function App() {
               <div style={{ marginTop: '56px' }}></div>
               <Carousel />
               <div className="container my-5">
-                <div className="card shadow p-4">
+                <div className="card shadow p-4 interactive-shadow">
                   <h2 className="text-center mb-4"><b>POPULAR DESTINATIONS</b></h2>
                   <div className="row row-cols-1 row-cols-md-3 g-4">
                     {destinations.map((dest, index) => (
-                      <DestinationCard key={index} {...dest} />
+                      <DestinationCard key={index} {...dest} index={index} />
                     ))}
                   </div>
                 </div>
@@ -76,6 +77,8 @@ export default function App() {
         <Route path="/destinations/europe" element={<EuropePage />} />
         <Route path="/destinations/international" element={<InternationalPage />} />
       </Routes>
+      
+      <ScrollToTop />
     </>
   );
 }
